@@ -1,6 +1,6 @@
 import { GlobalStyled } from "globalStyled";
 import { BookContacts } from "./Contacts/bookContacts";
-import { InputBookContacts } from "./Form/inputBookContacts";
+import { InputBookContacts } from "./Form/inputBookcontacts";
 import { FilterContacts } from "./Filter/filterContacts";
 import styled from 'styled-components';
 
