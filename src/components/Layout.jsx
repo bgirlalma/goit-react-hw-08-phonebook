@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import NavPage from "./Pages/nav"
+import NavPage from "./Pages/appBar"
 
 
 const Layout = () => {

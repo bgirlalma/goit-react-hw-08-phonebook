@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import Layout from './Layout';
 import RegisterPages from './Pages/register';
 import LoginPages from './Pages/login';
+import HomePage from './Pages/homePage';
+import { BookContacts } from './Contacts/bookContacts';
 
 const Container = styled.div`
 padding: 20px 20px 0 20px;
@@ -23,9 +25,10 @@ export const App = () => {
     <Container>
     <Routes>
       <Route path='/' element={<Layout/>} >
+      <Route index element={<HomePage/>}></Route>
       <Route path='login' element={<LoginPages/>}></Route>
       <Route path='register' element={<RegisterPages/>}></Route>
-      
+      <Route path='contacts' element={<BookContacts/>}></Route>
       </Route>
     </Routes>
     </Container>

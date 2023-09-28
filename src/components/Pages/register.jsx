@@ -2,18 +2,26 @@ import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 // import Notiflix from 'notiflix';
+import styled from "styled-components";
 
+const FormStyled = styled(Form)`
+max-width: 400px;
+`;
+const LabelStyled = styled.label`
+display: flex;
+flex-direction: column;
+`
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
       .min(5, 'Too Short!')
       .max(30, 'Too Long!')
       .required('Required'),
-    number: Yup.number()
+    email: Yup.string()
+      .min(10, 'Too Short!')
+      .required('Required'),
+    password: Yup.string()
         .min(10, 'Too Short!')
         .max(20, 'Too Long!')
-        .required('Required'),
-    email: Yup.string()
-        .min(10, 'Too Short!')
         .required('Required'),
   });
 
@@ -24,30 +32,31 @@ const RegisterPages = () => {
             <Formik
             initialValues={{
               name: '',
-              number: '',
+              email: '',
+              password: '',
             }}
             
             validationSchema={SignupSchema}
             // onSubmit={}
           >
-            <Form>
-                <label htmlFor='name'>Name
+            <FormStyled>
+                <LabelStyled htmlFor='name'>Name
                 <Field id="name" name="name" type="text" required placeholder="Марія Фросіна"></Field>
-                </label>
+                </LabelStyled>
                 <ErrorMessage name="name" component="div"/>
 
-                <label htmlFor='number'>Number
-                <Field id="number" name="number" type="text" required placeholder="380963549900"></Field>
-                </label>
-                <ErrorMessage name="number" component="div"/>
-
-                <label htmlFor='email'>Email
+                <LabelStyled htmlFor='email'>Email
                 <Field id="email" name="email" type="text" required placeholder="mariafrosina2023@gmail.com"></Field>
-                </label>
+                </LabelStyled>
                 <ErrorMessage name="email" component="div"/>
+
+                <LabelStyled htmlFor='password'>Password
+                <Field id="password" name="password" type="text"></Field>
+                </LabelStyled>
+                <ErrorMessage name="password" component="div"/>
     
                 <button type="submit">Registration</button>
-            </Form>
+            </FormStyled>
     
           </Formik>
         </div>
