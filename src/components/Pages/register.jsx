@@ -2,7 +2,7 @@ import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import { userRegistration } from 'redux/User/userApi';
 import * as Yup from 'yup';
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 import styled from "styled-components";
 
 const FormStyled = styled(Form)`
@@ -15,23 +15,29 @@ flex-direction: column;
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
       .min(5, 'Too Short!')
-      .max(30, 'Too Long!')
+      .max(15, 'Too Long!')
       .required('Required'),
     email: Yup.string()
       .min(10, 'Too Short!')
       .required('Required'),
     password: Yup.string()
         .min(10, 'Too Short!')
-        .max(20, 'Too Long!')
+        .max(15, 'Too Long!')
         .required('Required'),
   });
 
 const RegisterPages = () => {
     const dispatch = useDispatch();
 
-    const handleSubmit = (values, {resetForm}) => {
-      dispatch(userRegistration(values))
-      resetForm()
+    const handleSubmit = async (values, {resetForm}) => {
+     try {
+      console.log('Submitting:', values);
+      await  dispatch(userRegistration(values))
+      resetForm();
+      Notiflix.Notify.success("User successfully registered!")
+     } catch (error) {
+      Notiflix.Notify.failure("Error creating a new user!")
+     }
     }
     return(
         <div>
@@ -53,12 +59,12 @@ const RegisterPages = () => {
                 <ErrorMessage name="name" component="div"/>
 
                 <LabelStyled htmlFor='email'>Email
-                <Field id="email" name="email" type="text" required placeholder="mariafrosina2023@gmail.com"></Field>
+                <Field id="email" name="email" type="email" required placeholder="mariafrosina2023@gmail.com"></Field>
                 </LabelStyled>
                 <ErrorMessage name="email" component="div"/>
 
                 <LabelStyled htmlFor='password'>Password
-                <Field id="password" name="password" type="text"></Field>
+                <Field id="password" name="password" type="password"></Field>
                 </LabelStyled>
                 <ErrorMessage name="password" component="div"/>
     

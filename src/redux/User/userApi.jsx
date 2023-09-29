@@ -6,22 +6,15 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 const setUserHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
-      // Получает информацию о пользователе
-      export const userInfo = createAsyncThunk('user/userInfo', async (_, thunkAPI) => {
-        try {
-          const res = await axios.get('/users/current');
-          console.log(res.data)
-          return res.data;
-        } catch (error) {
-          return thunkAPI.rejectWithValue(error.message);
-        }
-      })
-  
-  
+
+const clearUserHeader = () => {
+  axios.defaults.headers.common.Authorization = "";
+}
     // Авторизация пользователя
-    export const userLogIn = createAsyncThunk('user/userLogIn', async (_, thunkAPI) => {
+    export const userLogIn = createAsyncThunk('user/userLogIn', async (credentials, thunkAPI) => {
       try {
-        const res = await axios.post('/users/login');
+        const res = await axios.post('/users/login', credentials);
+        setUserHeader(res.data.token);
         return res.data;
       } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -44,8 +37,8 @@ const setUserHeader = token => {
   // Выходим из системы
   export const userLoginOut = createAsyncThunk('user/userLoginOut', async (_, thunkAPI) => {
     try {
-      const res = await axios.post('/users/logout');
-      return res.data;
+      await axios.post('/users/logout');
+      clearUserHeader()
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

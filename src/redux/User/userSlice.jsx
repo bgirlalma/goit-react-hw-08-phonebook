@@ -1,15 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userRegistration } from './userApi';
+import { userLogIn, userLoginOut, userRegistration } from './userApi';
 const initialState = {
-    user: {
-      name: null,
-      email: null,
+    user: {name: "", email: ""},
       password: null,
       token: null,
       isLoggIn: false,
       isRefreshing: false,
       isLoader: false,
-    },
+    
   };
 
   const userSlice = createSlice({
@@ -26,22 +24,18 @@ const initialState = {
           state.token = action.payload.token;
           state.isLoggIn = true;
           state.isLoader = false;
+        }).addCase(userLogIn.fulfilled, (state, action) => {
+          state.user = action.payload.user;
+          state.token = action.payload.token;
+          state.isLoggIn = true;
+          state.isLoader = false;
+        } ).addCase(userLoginOut.fulfilled, (state) => {
+          state.user = {name: "", email: ""};
+          state.token = null;
+          state.isLoggIn = false;
         })
-        // .addCase(userInfo.rejected, (state, action) => {
-        //     state.user.isLoading = false;
-        //     state.user.error = action.payload;
-        //   })
-        // .addCase(userLogIn.fulfilled, (state, action) => {
-        //   state.user.isLoading = false;
-        //   state.user.error = null;
-        //   state.user.contacts = action.payload; 
-        // })
-        // .addCase(userLogIn.fulfilled, (state, action) => {
-        //   const idToDelete = action.payload.id;
-        //   state.contacts.items = state.contacts.items.filter(contact => contact.id !== idToDelete);
-        // })
+      
       
     }
   });
-  
     export const userReducer = userSlice.reducer;

@@ -1,8 +1,9 @@
 import { Formik, ErrorMessage, Form, Field } from 'formik';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-// import Notiflix from 'notiflix';
 import styled from "styled-components";
+import { userLogIn } from 'redux/User/userApi';
+import Notiflix from 'notiflix';
 
 const FormStyled = styled(Form)`
 max-width: 400px;
@@ -13,8 +14,8 @@ flex-direction: column;
 `
 
 const SignupSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(5, 'Too Short!')
+    email: Yup.string()
+      .min(10, 'Too Short!')
       .max(30, 'Too Long!')
       .required('Required'),
       password: Yup.string()
@@ -24,31 +25,42 @@ const SignupSchema = Yup.object().shape({
   });
 
 const LoginPages = () => {
-    // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  const handleSubmitLogIn = async (values, {resetForm}) => {
+   try {
+      await dispatch(userLogIn(values))
+    ;
+   } catch (error) {
+    Notiflix.Notify.failure("Incorrect password or email!")
+   }
+  }
 return(
     <div>
         <Formik
         initialValues={{
-          name: '',
+          email: '',
           password: '',
         }}
         
         validationSchema={SignupSchema}
-        // onSubmit={}
+        onSubmit={handleSubmitLogIn}
       >
-        <FormStyled >
-            <LabelStyled htmlFor='name'>Name
-            <Field id="name" name="name" type="text" required placeholder="Марія Фросіна"></Field>
+              {({ values, handleChange, handleBlur, handleSubmit }) => (
+          <FormStyled>
+            <LabelStyled htmlFor='email'>Email
+              <Field id="email" name="email" type="text" required placeholder="mariafrosina2023@gmail.com"></Field>
             </LabelStyled>
-            <ErrorMessage name="name" component="div"/>
+            <ErrorMessage name="email" component="div" />
 
             <LabelStyled htmlFor='password'>Password
-            <Field id="password" name="password" type="text"></Field>
+              <Field id="password" name="password" type="password"></Field>
             </LabelStyled>
-            <ErrorMessage name="password" component="div"/>
+            <ErrorMessage name="password" component="div" />
 
-            <button type="submit">Log In</button>
-        </FormStyled>
+            <button type="submit">Войти</button>
+          </FormStyled>
+        )}
 
       </Formik>
     </div>
