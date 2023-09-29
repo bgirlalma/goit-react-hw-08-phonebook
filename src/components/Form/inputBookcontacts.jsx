@@ -4,8 +4,8 @@ import * as Yup from 'yup';
 import Notiflix from 'notiflix';
 import {Container, FormStyle, FieldStyle, SubmitStyled, LabelStaled, PhoneTitle} from './inputBookcontacts.styled'
 import { useDispatch, useSelector} from 'react-redux';
-import { addContact } from 'redux/contactsOperation';
-import { getContacts } from 'redux/selector';
+import { addContact } from 'redux/Contacts/contactsOperation';
+import { getContacts } from 'redux/Contacts/selector';
 
 const SignupSchema = Yup.object().shape({
     name: Yup.string()

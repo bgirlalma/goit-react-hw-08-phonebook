@@ -1,5 +1,6 @@
 import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
+import { userRegistration } from 'redux/User/userApi';
 import * as Yup from 'yup';
 // import Notiflix from 'notiflix';
 import styled from "styled-components";
@@ -27,6 +28,11 @@ const SignupSchema = Yup.object().shape({
 
 const RegisterPages = () => {
     const dispatch = useDispatch();
+
+    const handleSubmit = (values, {resetForm}) => {
+      dispatch(userRegistration(values))
+      resetForm()
+    }
     return(
         <div>
             <Formik
@@ -37,11 +43,12 @@ const RegisterPages = () => {
             }}
             
             validationSchema={SignupSchema}
-            // onSubmit={}
+            onSubmit={handleSubmit}
           >
-            <FormStyled>
+            {({ values, handleChange, handleBlur, handleSubmit }) => (
+              <FormStyled>
                 <LabelStyled htmlFor='name'>Name
-                <Field id="name" name="name" type="text" required placeholder="Марія Фросіна"></Field>
+                <Field id="name" name="name" type="text" required placeholder="Adrian Cross"></Field>
                 </LabelStyled>
                 <ErrorMessage name="name" component="div"/>
 
@@ -57,6 +64,8 @@ const RegisterPages = () => {
     
                 <button type="submit">Registration</button>
             </FormStyled>
+            )}
+            
     
           </Formik>
         </div>

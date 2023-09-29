@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "redux/contactsOperation";
-import { getContacts, getError, getFilters, getIsLoading } from "redux/selector";
-import { deleteContact } from "redux/contactsOperation";
+import { fetchContacts } from "redux/Contacts/contactsOperation";
+import { getContacts, getError, getFilters, getIsLoading } from "redux/Contacts/selector";
+import { deleteContact } from "redux/Contacts/contactsOperation";
 import { ProgressBar } from 'react-loader-spinner';
 import { AiFillDelete } from "react-icons/ai";
 import {
