@@ -54,17 +54,17 @@ const RegisterPages = () => {
             {({ values, handleChange, handleBlur, handleSubmit }) => (
               <FormStyled>
                 <LabelStyled htmlFor='name'>Name
-                <Field id="name" name="name" type="text" required placeholder="Adrian Cross"></Field>
+                <Field id="name" name="name" type="text" autoComplete="off" required placeholder="Adrian Cross"></Field>
                 </LabelStyled>
                 <ErrorMessage name="name" component="div"/>
 
                 <LabelStyled htmlFor='email'>Email
-                <Field id="email" name="email" type="email" required placeholder="mariafrosina2023@gmail.com"></Field>
+                <Field id="email" name="email" type="email" autoComplete="off" required placeholder="mariafrosina2023@gmail.com"></Field>
                 </LabelStyled>
                 <ErrorMessage name="email" component="div"/>
 
                 <LabelStyled htmlFor='password'>Password
-                <Field id="password" name="password" type="password"></Field>
+                <Field id="password" name="password" type="password" autoComplete="off" required></Field>
                 </LabelStyled>
                 <ErrorMessage name="password" component="div"/>
     

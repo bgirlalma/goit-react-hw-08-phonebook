@@ -49,12 +49,12 @@ return(
               {({ values, handleChange, handleBlur, handleSubmit }) => (
           <FormStyled>
             <LabelStyled htmlFor='email'>Email
-              <Field id="email" name="email" type="text" required placeholder="mariafrosina2023@gmail.com"></Field>
+              <Field id="email" name="email" type="text" autoComplete="off" required placeholder="mariafrosina2023@gmail.com"></Field>
             </LabelStyled>
             <ErrorMessage name="email" component="div" />
 
             <LabelStyled htmlFor='password'>Password
-              <Field id="password" name="password" type="password"></Field>
+              <Field id="password" name="password" type="password" autoComplete="off"></Field>
             </LabelStyled>
             <ErrorMessage name="password" component="div" />
 
