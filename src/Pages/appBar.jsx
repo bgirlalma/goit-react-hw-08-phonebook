@@ -1,6 +1,6 @@
 import UserMenu from "components/UserMenu/userMenu";
 import { Navigation } from "./navigation";
-import { AuthNav } from "../AuthNav/authNav";
+import { AuthNav } from "../components/AuthNav/authNav";
 import { useAuth } from "components/hooks/userHook";
 import styled from "styled-components";
 

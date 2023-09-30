@@ -18,16 +18,18 @@ export const Navigation = () => {
     const {isLoggIn} = useAuth()
     return (
         <nav>
-            {isLoggIn && (
+            
         <StyledNavigation>
             <li>
                 <StyledNavLink to="/">Home</StyledNavLink>
             </li>
+            {isLoggIn && (
             <li>
-                <StyledNavLink to="/contacts">Phonebook</StyledNavLink>
+                <StyledNavLink to="/contacts">Phonebook</StyledNavLink>  
             </li>  
+             )}
         </StyledNavigation>
-        )}
+       
     </nav>
     )
 }

@@ -20,7 +20,7 @@ const SignupSchema = Yup.object().shape({
   export const InputBookContacts = ({ title}) => {
     const dispatch = useDispatch();
     const contacts = useSelector(getContacts);
-   
+  
     return (
         <Container>
           <PhoneTitle>{title}</PhoneTitle>

@@ -5,9 +5,9 @@
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Layout from './Layout';
-import RegisterPages from './Pages/register';
-import LoginPages from './Pages/login';
-import HomePage from './Pages/homePage';
+import RegisterPages from '../Pages/register';
+import LoginPages from '../Pages/login';
+import HomePage from '../Pages/homePage';
 import { BookContacts } from './Contacts/bookContacts';
 import { GlobalStyled } from 'globalStyled';
 
