@@ -7,4 +7,6 @@ export const useAuth = () => {
         isRefreshing: useSelector(selectIsRefreshing),
         user: useSelector(selectUser),
     }
+
+    
 }

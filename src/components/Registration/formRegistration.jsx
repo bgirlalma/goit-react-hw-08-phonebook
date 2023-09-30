@@ -3,15 +3,8 @@ import { useDispatch } from 'react-redux';
 import { userRegistration } from 'redux/User/userApi';
 import * as Yup from 'yup';
 import Notiflix from 'notiflix';
-import styled from "styled-components";
+import {Container, FormStyled, LabelStyled, FieldStyled, ButtonStyled } from './formRegistration.styled';
 
-const FormStyled = styled(Form)`
-max-width: 400px;
-`;
-const LabelStyled = styled.label`
-display: flex;
-flex-direction: column;
-`
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
       .min(5, 'Too Short!')
@@ -41,6 +34,7 @@ const FormRegistration = () => {
      }
     }
     return (
+      <Container className='section-registration'>
         <Formik
         initialValues={{
           name: '',
@@ -54,26 +48,27 @@ const FormRegistration = () => {
         {({ values, handleChange, handleBlur, handleSubmit }) => (
           <FormStyled>
             <LabelStyled htmlFor='name'>Name
-            <Field id="name" name="name" type="text" autoComplete="off" required placeholder="Adrian Cross"></Field>
+            <FieldStyled id="name" name="name" type="text" autoComplete="off" required placeholder="Adrian Cross"></FieldStyled>
             </LabelStyled>
             <ErrorMessage name="name" component="div"/>
 
             <LabelStyled htmlFor='email'>Email
-            <Field id="email" name="email" type="email" autoComplete="off" required placeholder="mariafrosina2023@gmail.com"></Field>
+            <FieldStyled id="email" name="email" type="email" autoComplete="off" required placeholder="mariafrosina2023@gmail.com"></FieldStyled>
             </LabelStyled>
             <ErrorMessage name="email" component="div"/>
 
             <LabelStyled htmlFor='password'>Password
-            <Field id="password" name="password" type="password" autoComplete="off" required></Field>
+            <FieldStyled id="password" name="password" type="password" autoComplete="off" required></FieldStyled>
             </LabelStyled>
             <ErrorMessage name="password" component="div"/>
 
-            <button type="submit">Registration</button>
+            <ButtonStyled type="submit">Registration</ButtonStyled>
         </FormStyled>
         )}
         
 
       </Formik>
+      </Container>
     )
 }
 

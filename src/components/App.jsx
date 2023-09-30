@@ -9,10 +9,8 @@ import RegisterPages from './Pages/register';
 import LoginPages from './Pages/login';
 import HomePage from './Pages/homePage';
 import { BookContacts } from './Contacts/bookContacts';
+import { GlobalStyled } from 'globalStyled';
 
-const Container = styled.div`
-padding: 20px 20px 0 20px;
-`;
 
 // const WrappContainer = styled.div`
 // display: grid;
@@ -22,7 +20,7 @@ padding: 20px 20px 0 20px;
 
 export const App = () => {
   return (
-    <Container>
+    <>
     <Routes>
       <Route path='/' element={<Layout/>} >
       <Route index element={<HomePage/>}></Route>
@@ -31,7 +29,9 @@ export const App = () => {
       <Route path='contacts' element={<BookContacts/>}></Route>
       </Route>
     </Routes>
-    </Container>
+
+    <GlobalStyled/>
+    </>
   );
 };
 

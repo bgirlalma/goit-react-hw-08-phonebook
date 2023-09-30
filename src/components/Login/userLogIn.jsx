@@ -1,17 +1,9 @@
 import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import styled from "styled-components";
 import { userLogIn } from 'redux/User/userApi';
 import Notiflix from 'notiflix';
-
-const FormStyled = styled(Form)`
-max-width: 400px;
-`;
-const LabelStyled = styled.label`
-display: flex;
-flex-direction: column;
-`
+import {Container, FormStyled, LabelStyled, FieldStyled, ButtonStyled } from './userLogIn.styled';
 
 const SignupSchema = Yup.object().shape({
     email: Yup.string()
@@ -36,7 +28,7 @@ const UserLogIn = () => {
      }
     }
     return(
-        <div>
+        <Container>
         <Formik
         initialValues={{
           email: '',
@@ -49,21 +41,21 @@ const UserLogIn = () => {
               {({ values, handleChange, handleBlur, handleSubmit }) => (
           <FormStyled>
             <LabelStyled htmlFor='email'>Email
-              <Field id="email" name="email" type="text" autoComplete="off" required placeholder="mariafrosina2023@gmail.com"></Field>
+              <FieldStyled id="email" name="email" type="text" autoComplete="off" required placeholder="mariafrosina2023@gmail.com"></FieldStyled>
             </LabelStyled>
             <ErrorMessage name="email" component="div" />
 
             <LabelStyled htmlFor='password'>Password
-              <Field id="password" name="password" type="password" autoComplete="off"></Field>
+              <FieldStyled id="password" name="password" type="password" autoComplete="off"></FieldStyled>
             </LabelStyled>
             <ErrorMessage name="password" component="div" />
 
-            <button type="submit">Войти</button>
+            <ButtonStyled type="submit">Войти</ButtonStyled>
           </FormStyled>
         )}
 
       </Formik>
-    </div>
+    </Container>
     )
 }
 

@@ -9,6 +9,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #40e0d0;
   }
   
   code {
@@ -31,6 +32,11 @@ body {
     list-style: none;
   }
 
+  li{
+    padding: 0;
+    margin: 0;
+  }
+
   p {
     margin: 0;
     padding: 0;
@@ -41,5 +47,12 @@ body {
     padding: 0;
   }
 
+  a{
+    text-decoration: none;
+  }
   
+  hr{
+    margin: 0;
+    color: blue;
+  }
 `;

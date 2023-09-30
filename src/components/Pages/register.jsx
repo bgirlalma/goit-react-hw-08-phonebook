@@ -1,8 +1,9 @@
 import FormRegistration from "components/Registration/formRegistration";
 
+
 const RegisterPages = () => {
     return(
-        <div>
+        <div className="Registration">
       <FormRegistration/>
         </div>
     )

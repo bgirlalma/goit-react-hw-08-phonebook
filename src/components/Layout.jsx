@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom"
-import NavPage from "./Pages/appBar"
-
+import NavPage from "./Pages/appBar";
 
 const Layout = () => {
 return(
-    <div>
+    <div className="Layout">
         <NavPage/>
-        <hr/>
 
         <Outlet/>
     </div>
