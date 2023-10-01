@@ -4,11 +4,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
  const initialState = {
   contacts: {
-    name: [],
-    number: [],
+    items: [],
+    isLoading: false,
+    error: null,
   },
-  isLoading: false,
-  error: null,
   filter: '',
 };
  
