@@ -1,4 +1,3 @@
-export const selectUser = state => state.user;
-console.log(selectUser)
-export const selectIsLoggIn = state => state.user.isLoggIn;
-export const selectIsRefreshing = state => state.user.isRefreshing;
+export const selectUser = state => state.userData.user;
+export const selectIsLoggIn = state => state.userData.isLoggIn;
+export const selectIsRefreshing = state => state.userData.isRefreshing;

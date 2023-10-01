@@ -31,8 +31,6 @@ cursor: pointer;
 }
 
 `
-
-
  const UserMenu = () => {
   const {user} = useAuth()
   const dispatch = useDispatch();
@@ -40,7 +38,6 @@ cursor: pointer;
   const handleLogOut = async () => {
     dispatch(userLoginOut());
   }
-  console.log(user.name)
     return(
        <StyledMenu>
          <StyledTitle>Welcome, {user.name}</StyledTitle>

@@ -4,10 +4,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
  const initialState = {
   contacts: {
-    items: [],
-    isLoading: false,
-    error: null,
+    name: [],
+    number: [],
   },
+  isLoading: false,
+  error: null,
   filter: '',
 };
  
@@ -18,12 +19,14 @@ const contactsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, (state) => {
+        console.log('Fetching contacts...');
         state.contacts.isLoading = true;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
+        console.log('Contacts fetched successfully:', action.payload);
         state.contacts.isLoading = false;
         state.contacts.error = null;
-        state.contacts.items = action.payload; 
+        state.contacts = action.payload; 
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.contacts.isLoading = false;
@@ -35,6 +38,7 @@ const contactsSlice = createSlice({
         state.contacts.items = state.contacts.items.filter(contact => contact.id !== idToDelete);
       })
       .addCase(fetchContacts.rejected, (state, action) => {
+        console.error('Error fetching contacts:', action.payload);
         state.contacts.isLoading = false;
         state.contacts.error = action.payload;
       })

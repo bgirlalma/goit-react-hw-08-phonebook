@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "redux/Contacts/contactsOperation";
+import { fetchContacts } from "redux/Contacts/contactsOperation";
 import { getContacts, getError, getFilters, getIsLoading } from "redux/Contacts/selector";
 import { deleteContact } from "redux/Contacts/contactsOperation";
 import { ProgressBar } from 'react-loader-spinner';
@@ -24,7 +24,7 @@ export const BookContacts = () => {
   const filter = useSelector(getFilters) || '';
 
   useEffect(() => {
-    dispatch(addContact())
+    dispatch(fetchContacts())
   }, [dispatch]);
 
   const selectFilteredContacts = () => {

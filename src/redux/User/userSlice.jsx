@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userLogIn, userLoginOut, userRegistration } from './userApi';
+import { refreshUser, userLogIn, userLoginOut, userRegistration } from './userApi';
 const initialState = {
-    user: {name: "", email: ""},
-      password: null,
+    user: {name: null, email: null, password: null,},
       token: null,
       isLoggIn: false,
       isRefreshing: false,
@@ -29,10 +28,13 @@ const initialState = {
           state.token = action.payload.token;
           state.isLoggIn = true;
           state.isLoader = false;
-        } ).addCase(userLoginOut.fulfilled, (state) => {
-          state.user = {name: "", email: ""};
+        }).addCase(userLoginOut.fulfilled, (state) => {
+          state.user = {name: null, email: null, password: null,};
           state.token = null;
           state.isLoggIn = false;
+        }).addCase(refreshUser.fulfilled, (state, action) => {
+          state.user = action.payload;
+          state.isLoggIn = true;
         })
       
       

@@ -12,9 +12,10 @@ const setUserHeader = token => {
   // получание списка контактов
 export const fetchContacts = createAsyncThunk('contacts/fetchContacts', async (_, thunkAPI) => {
       try {
+        
         const res = await axiosInstance.get('/contacts');
         setUserHeader(res.data.token);
-        console.log(res.data)
+        console.log('Data received:', res.data);
         return res.data;
       } catch (error) {
         return thunkAPI.rejectWithValue({ errorMessage: error.message });

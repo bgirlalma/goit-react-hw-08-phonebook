@@ -22,6 +22,7 @@ return(
     {isLoggIn ? <UserMenu/> : <AuthNav/>}
       </StyledContainer>
    </header>
+
 )
 }
 

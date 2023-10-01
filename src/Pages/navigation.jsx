@@ -17,8 +17,7 @@ color: blue;
 export const Navigation = () => {
     const {isLoggIn} = useAuth()
     return (
-        <nav>
-            
+        <nav>  
         <StyledNavigation>
             <li>
                 <StyledNavLink to="/">Home</StyledNavLink>
