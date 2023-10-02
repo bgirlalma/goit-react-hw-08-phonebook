@@ -2,9 +2,10 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+
   
 const setUserHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  return axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
 const clearUserHeader = () => {
@@ -45,12 +46,13 @@ const clearUserHeader = () => {
   })
 
   export const refreshUser = createAsyncThunk('user/refreshUser', async (_, thunkAPI) => {
-  const {token} = thunkAPI.getState().user;
+  const state = thunkAPI.getState();
+  const token = state.userData.token;
   if(!token) {
     return thunkAPI.rejectWithValue("No valid Token!");
   }
-  setUserHeader(token);
   try {
+    setUserHeader(token);
     const res = await axios.get('/users/current')
     return res.data;
   } catch (error) {
