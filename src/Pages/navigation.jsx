@@ -23,10 +23,17 @@ export const Navigation = () => {
                 <StyledNavLink to="/">Home</StyledNavLink>
             </li>
             {isLoggIn && (
+                <>
             <li>
                 <StyledNavLink to="/contacts">Phonebook</StyledNavLink>  
             </li>  
+
+            <li>
+                <StyledNavLink to="/contacts/{contactId}">Search</StyledNavLink>
+            </li>
+            </>
              )}
+            
         </StyledNavigation>
        
     </nav>

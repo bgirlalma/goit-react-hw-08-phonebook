@@ -62,7 +62,7 @@ export const BookContacts = () => {
         </IsLoading>
       )}
       {error && <ErrorTitle>An error occurred: {error}!!!</ErrorTitle>}
-      {/* <ItemStyled>
+      <ItemStyled>
         {selectFilteredContacts().map((item) => (
           <ListStyled key={item.id}>
             <StyledName>{item.name}:</StyledName>
@@ -72,7 +72,7 @@ export const BookContacts = () => {
             </ButtonDelete>
           </ListStyled>
         ))}
-      </ItemStyled> */}
+      </ItemStyled>
     </ContactsContainer>
   );
 };

@@ -33,6 +33,7 @@ const SignupSchema = Yup.object().shape({
         
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
+          console.log(contacts)
           const existingContact = contacts.find(contact => contact.name.toLowerCase() === values.name.toLowerCase() && contact.number === values.number);
 
           if(existingContact){
