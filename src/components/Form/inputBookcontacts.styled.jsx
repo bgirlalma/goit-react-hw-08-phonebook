@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {Form, Field} from 'formik'
 
 export const Container = styled.div`
-
 `;
 
 export const PhoneTitle = styled.h2`
@@ -14,12 +13,18 @@ color: rgb(142, 13, 138);
 text-decoration: underline;
 border: none;
 margin-bottom: 10px;
+
+display: flex;
+justify-content: center;
+text-decoration: none;
 `;
 
 export const FormStyle = styled(Form)`
 display: flex;
 flex-direction: column;
-// max-width: 760px;
+max-width: 500px;
+margin-left: auto;
+margin-right: auto;
 `;
 
 export const LabelStaled = styled.label`

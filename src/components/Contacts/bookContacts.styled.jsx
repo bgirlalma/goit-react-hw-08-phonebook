@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 export const ContactsContainer = styled.div`
-max-width: 1200px;
-padding: 20px;
-margin-left: auto;
-margin-right: auto;
 `;
 
 export const StyledTitle = styled.h2`
@@ -13,9 +9,9 @@ justify-content: center;
 font-family: Oxygen;
 font-weight: bold;
 font-size: 24px;
-margin-bottom: 20px;
+margin-bottom: 40px;
 color: rgb(142, 13, 138);
-text-decoration: underline;
+text-decoration: none;
 border: none;
 `;
 
@@ -34,8 +30,7 @@ color: red;
 
 export const ItemStyled = styled.ul`
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-column-gap: 20px;
+grid-template-columns: repeat(2, 1fr);
 gap: 10px;
 color: black;
 `;
@@ -61,7 +56,7 @@ margin-right: 10px;
 export const ButtonDelete = styled.button`
 padding: 2px 2px;
 margin-left: 10px;
-border: 2px solid red;
 cursor: pointer;
-
+background-color: inherit;
+border: none;
 `;

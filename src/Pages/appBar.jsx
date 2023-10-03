@@ -9,8 +9,6 @@ display: flex;
 justify-content: space-between;
 background-color:  #00ff00;
 padding: 20px;
-border: 3px solid blue;
-border-radius: 10px;
 `;
 
 const NavPage = () => {

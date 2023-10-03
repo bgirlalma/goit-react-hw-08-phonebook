@@ -47,7 +47,7 @@ export const BookContacts = () => {
 
   return (
     <ContactsContainer>
-      <StyledTitle>Contacts</StyledTitle>
+      <StyledTitle>Book Contacts</StyledTitle>
       {isLoading && (
         <IsLoading>
           <ProgressBar
@@ -68,7 +68,7 @@ export const BookContacts = () => {
             <StyledName>{item.name}:</StyledName>
             {item.number}
             <ButtonDelete onClick={() => handleDeleteContact(item.id)}>
-              <AiFillDelete color="rgb(255, 0, 0)" />
+              <AiFillDelete color="rgb(255, 0, 0)" size="20px"/>
             </ButtonDelete>
           </ListStyled>
         ))}

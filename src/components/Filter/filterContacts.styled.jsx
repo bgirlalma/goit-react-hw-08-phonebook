@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-
+padding: 20px;
 `;
 
 export const LabelFilter = styled.label`
@@ -11,7 +11,7 @@ font-size: 24px;
 display: flex;
 justify-content: center;
 color: rgb(142, 13, 138);
-text-decoration: underline;
+text-decoration: none;
 `;
 
 export const FilterInput = styled.input`
@@ -20,7 +20,7 @@ width: 70%;
 margin-left: auto;
 margin-right: auto;
 padding: 10px;
-margin-top: 35px;
+margin-top: 20px;
 border-radius: 20px;
 border: 2px solid rgb(21 31 216 / 30%);
 

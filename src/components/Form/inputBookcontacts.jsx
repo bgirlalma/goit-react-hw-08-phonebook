@@ -23,7 +23,7 @@ const SignupSchema = Yup.object().shape({
   
     return (
         <Container>
-          <PhoneTitle>{title}</PhoneTitle>
+          <PhoneTitle>Add Contact</PhoneTitle>
   
               <Formik
         initialValues={{
