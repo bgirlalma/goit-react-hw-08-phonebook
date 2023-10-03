@@ -1,8 +1,8 @@
-import { Navigation } from "Pages/navigation"
 import { useAuth } from "./hooks/userHook"
+import { Navigate } from "react-router-dom";
 
-export const PrivateRoute = ({component: Component, redirectTo = "/"}) => {
+export const PrivateRoute = ({component: Component, redirectTo = "/login"}) => {
     const {isLoggIn, isRefreshing} = useAuth();
     const redirectShould = !isLoggIn && !isRefreshing;
-    return redirectShould ? <Navigation to={redirectTo}/> : <Component/>;
+    return redirectShould ? <Navigate to={redirectTo}/> : <Component/>;
 }
