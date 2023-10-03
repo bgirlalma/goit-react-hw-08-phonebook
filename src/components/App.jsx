@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { FilterContacts } from './Filter/filterContacts';
 import Layout from './Layout';
 import RegisterPages from '../Pages/register';
 import LoginPages from '../Pages/login';
